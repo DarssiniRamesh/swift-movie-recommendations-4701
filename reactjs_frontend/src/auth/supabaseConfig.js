@@ -1,0 +1,2 @@
+export const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL || "https://bfidnwsxnulijleapbby.supabase.co";
+export const SUPABASE_KEY = process.env.REACT_APP_SUPABASE_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmaWRud3N4bnVsaWpsZWFwYmJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI2NDQyOTgsImV4cCI6MjA2ODIyMDI5OH0.OOoM1Q3uY0JXPRH-HHe66s90ALT3WTvYeuAOv9pKc3Q";
