@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 /**
  * App Root
  * Sets up Providers and core layout.
- * NOW ensures all subcomponents (including Navbar using useNavigate) are always wrapped in <BrowserRouter>.
+ * Assumes <BrowserRouter> wraps App at the entrypoint (index.js), so NO local Router here.
  */
 function MovieAppRoot() {
   const [theme, setTheme] = useState("light");
@@ -23,22 +23,20 @@ function MovieAppRoot() {
   const toggleTheme = () =>
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
 
-  // Router moved up to ensure no useNavigate hook errors anywhere below
+  // No Router here, only providers and main structure
   return (
-    <Router>
-      <AuthProvider>
-        <MovieProvider>
-          <div className="App">
-            <Navbar theme={theme} toggleTheme={toggleTheme} />
-            <main>
-              <Suspense fallback={<div style={{ margin: "2rem" }}>Loading...</div>}>
-                <Routes />
-              </Suspense>
-            </main>
-          </div>
-        </MovieProvider>
-      </AuthProvider>
-    </Router>
+    <AuthProvider>
+      <MovieProvider>
+        <div className="App">
+          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          <main>
+            <Suspense fallback={<div style={{ margin: "2rem" }}>Loading...</div>}>
+              <Routes />
+            </Suspense>
+          </main>
+        </div>
+      </MovieProvider>
+    </AuthProvider>
   );
 }
 
