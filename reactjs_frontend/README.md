@@ -51,6 +51,11 @@ Common components include:
 - Buttons (`.btn`, `.btn-large`)
 - Container (`.container`)
 - Navigation (`.navbar`)
+
+## Routing and useNavigate() Safety
+
+All navigation and routed UI (including Navbar and all lazy/conditionally loaded components) are now strictly rendered *within* `<Router>` context. Verified by code inspection and test, this prevents any "useNavigate() may be used only in context of Router" errors, even in edge cases with lazy-loaded routes or error boundary remounts. Developers should continue to wrap all UI entry-points inside the top-level `<Router>` defined in `MovieAppRoot` (src/App.js).
+
 - Typography (`.title`, `.subtitle`, `.description`)
 
 ## Learn More
